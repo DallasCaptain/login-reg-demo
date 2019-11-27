@@ -36,15 +36,15 @@ module.exports = {
                 })
                 .catch(err =>{
                     console.log('user save error:',err)
-                    response.redirect('/')
+                    response.redirect('/express')
                 })
             })
             .catch(err =>{
                 console.log('password hash error:', err)
-                response.redirect('/')
+                response.redirect('/express')
             })
         }else{
-            response.redirect('/')
+            response.redirect('/express')
         }
         }
 }

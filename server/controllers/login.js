@@ -11,20 +11,27 @@ module.exports = {
             console.log('user',user)
             console.log('login requested by: {','email ',req.body.email,'pass ',req.body.password,'}')
             bcrypt.compare(req.body.password,user.password)
-            .then(()=>{
-                console.log('password good')
-                session.email = user.email
-                res.redirect('/success')
+            .then(status=>{
+                console.log('password match',status)
+
+                if(status){
+                    session.email = user.email
+                    res.redirect('/success')
+                }
+                else{
+                    req.session.destroy()
+                    res.redirect('/express')
+                }
             })
             .catch(err=>{
                 console.log('password login error',err)
-                res.redirect('/')
+                res.redirect('/express')
             })
 
         })
         .catch(err => {
             console.log('error finding user:',err)
-            res.redirect('/')
+            res.redirect('/express')
         })
         
     }

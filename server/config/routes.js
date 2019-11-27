@@ -3,10 +3,13 @@ var register = require('../controllers/register.js')
 var login = require('../controllers/login.js')
 
 module.exports = function(app){
-    
+app.get('/express', function(request,response){
+    response.render('index')
+})
+
+
 app.get('/', function(request,response){
     console.log('in get /')
-    response.render ('index')
 })
 
 

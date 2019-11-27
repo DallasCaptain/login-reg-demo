@@ -37,7 +37,7 @@ var database = require('./server/config/mongoose.js')
 
 
 
-app.use(express.static(__dirname + "/static"));
+app.use(express.static(__dirname + "/public/dist/public/"));
 app.use(bodyParser.urlencoded({extended : true}));
 
 const server = app.listen(8000, function() {
