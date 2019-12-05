@@ -1,8 +1,27 @@
 var session = require('express-session')
 var register = require('../controllers/register.js')
 var login = require('../controllers/login.js')
+var angularlogin = require('../controllers/angularlogin.js')
 
 module.exports = function(app){
+//routes used by angular 
+
+app.post('/loginAngular', function(req,res){
+    console.log('angular login request:',req.body)
+    angularlogin.login(req,res)
+})
+
+
+
+
+
+
+
+
+
+
+//routes used by express 
+
 app.get('/express', function(request,response){
     response.render('index')
 })

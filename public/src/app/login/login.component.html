@@ -1,0 +1,10 @@
+<p>login works!</p>
+
+{{loginUser.email}}
+<form (submit)="sendLogin()">
+    Email:<input type="email" name="email" value={{loginUser.email}} [(ngModel)]="loginUser.email">
+    <br>
+    Password:<input type="password" name="password" value={{loginUser.password}} [(ngModel)]="loginUser.password">
+    <input type = 'submit' value="login">
+
+</form>
